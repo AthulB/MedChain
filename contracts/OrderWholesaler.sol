@@ -24,6 +24,9 @@ contract OrderWholesaler{
 	constructor() public{
 		user = new UserInfo();
 		userId = user.userMap(msg.sender);
+		startOrder(1);
+		addMedToOrder(1,50,1);
+		addMedToOrder(2,100,1);
 	}
 
 	mapping(uint=>Order) public orderMap;
@@ -35,10 +38,10 @@ contract OrderWholesaler{
 	}
 
 	//complete and place order
-	function placeOrder(uint manId) public{
-		obj.manId = manId;
-		orderMap[++orderCount] = obj;
-	}
+	// function placeOrder(uint manId) public{
+	// 	obj.manId = manId;
+	// 	orderMap[++orderCount] = obj;
+	// }
 
 	//append medicines to list
 	function addMedToOrder(uint medId, uint count,uint manId) public {
