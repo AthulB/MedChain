@@ -79,6 +79,12 @@ App = {
             else if (data[5].toNumber() == 0) {
                 window.location.href = "wholesale-neworder.html";
             }
+            else if (data[5].toNumber() == 1) {
+                window.location.href = "company-checkorder.html";
+            }
+            else if (data[5].toNumber() == 2) {
+                window.location.href = "transporter_collect_orders.html";
+            }
         })
 
     },
