@@ -86,6 +86,12 @@ Stack = {
         else if(medName2=='Eno') {
             var id = 2
         }
+        else if(medName2=='Vicks') {
+            var id = 3
+        }
+        else if(medName2=='Moov') {
+            var id = 4
+        }
 
         if (typeof web3 !== "undefined") {
           Stack.web3Provider = web3.currentProvider;

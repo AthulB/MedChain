@@ -46,6 +46,12 @@ Stack = {
                         else if(medId == 2){
                             medname='Eno';
                         }
+                        else if(medId == 3){
+                            medname='Vicks';
+                        }
+                        else if(medId == 4){
+                            medname='Moov';
+                        }
                         if(status == 0){
                             stat='Pending';
                         }
