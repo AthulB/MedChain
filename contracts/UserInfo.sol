@@ -30,16 +30,12 @@ contract UserInfo {
 	mapping(address=>uint) public userMap;
 
 	constructor() public {
-		admin = msg.sender;
-		admin_license = " ";
-		userMap[msg.sender] = 1; 
-		userslist[1].accountId = msg.sender;
-		userslist[1].name = 'Admin';
-		userslist[1].email = 'admin@.dasdha';
-		userslist[1].contactNumber = '78954624612';
-		userslist[1].licenseid = '465as46das1d621';
-		userslist[1].utype = userType.Admin;
-		userCount = 1;
+		addUser(0xF5D2D22681dB772507EF48BE6474Ab5037c10445,"sdf","sdfsdf@gmail.com","9769577063","asdasd",userType.Admin);
+		addUser(0x50BB13C54482AEb8c4085BdfE72556adC698C57F,"sdf","sdfsdf@gmail.com","9769577063","asdasd",userType.Manufacturer);
+		addUser(0x820FdF60e9e160F147249C82158866175a2F0844,"sdf","sdfsdf@gmail.com","9769577063","asdasd",userType.WholeSale_Dealer);
+		addUser(0x86F990A75DF2A4993357bb0D5D9cCE2ca7d98a28,"sdf","sdfsdf@gmail.com","9769577063","asdasd",userType.Pharmasists);
+		addUser(0xf32E838a29B25d7dE0E59f9FbAF63116426C64e4,"sdf","sdfsdf@gmail.com","9769577063","asdasd",userType.Transporter);
+		userCount = 5;
 	}
 
 	modifier onlyAdmin{ 
@@ -59,7 +55,7 @@ contract UserInfo {
 	}
 	
 
-	function addUser(address account,string memory uname,string memory uemail,string memory ucontactNumber, string memory ulicenseid, userType utype) public onlyAdmin{
+	function addUser(address account,string memory uname,string memory uemail,string memory ucontactNumber, string memory ulicenseid, userType utype) public{
         bytes32 name = stringToBytes32(uname);
         bytes32 email = stringToBytes32(uemail);
         bytes32 contactNumber = stringToBytes32(ucontactNumber);

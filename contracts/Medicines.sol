@@ -21,6 +21,8 @@ contract Medicines{
 
 	constructor() public {
 		admin = msg.sender;
+		addMedicines(2, "Crocin", 100);
+		addMedicines(2, "Eno", 50);
 	}
 
 

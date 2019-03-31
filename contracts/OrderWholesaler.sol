@@ -4,11 +4,7 @@ import "./UserInfo.sol";
 
 contract OrderWholesaler{
 	
-	// enum status{
-	// 	pending,
-	// 	accepted,
-	// 	rejected
-	// }
+	
 	UserInfo user;
 	uint public orderCount;
 	uint public distinctOrders;
@@ -47,7 +43,7 @@ contract OrderWholesaler{
 	//append medicines to list
 	function addMedToOrder(uint medId, uint count,uint manId) public {
 		uint orderId = distinctOrders;
-		obj = Order(userId,orderId,medId,count,manId,0);
+		obj = Order(orderId,medId,count,userId,manId,0);
 		orderMap[++orderCount] = obj;
 	}
 

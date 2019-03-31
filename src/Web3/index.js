@@ -65,6 +65,9 @@ App = {
         App.contracts.UserInfo.deployed().then(function (instance) {
             UserInfoInstance = instance;
             console.log(App.account);   
+            if(App.account === "0xf5d2d22681db772507ef48be6474ab5037c10445"){
+                window.location.href = "admin-panel.html";
+            }
             return UserInfoInstance.userMap(App.account);
             
         }).then(function (index) {
@@ -76,7 +79,7 @@ App = {
             if (data[5].toNumber() == 3) {
                 window.location.href = "admin-panel.html";
             }
-            else if (data[5].toNumber() == 0) {
+            else if (data[5].toNumber() == 1) {
                 window.location.href = "wholesale-neworder.html";
             }
         })
