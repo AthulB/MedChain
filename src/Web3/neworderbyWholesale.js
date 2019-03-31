@@ -103,30 +103,33 @@ Stack = {
             //connect provider to interact with contract
             Stack.contracts.UserInfo.setProvider(Stack.web3Provider);
         });
-
+        
         Stack.contracts.UserInfo.deployed().then(function (instance) {
             UserInfoInstance = instance;
 
             return UserInfoInstance.userMap(e).then(function (i) {
                lol  = i
-               console.log(lol.toNumber()-1)
-            })
-        })
-        console.log(lol.toNumber()-1)
-        $.ajaxSetup({ async: false });
-        $.getJSON("OrderWholesaler.json", function (i) {
-            //Instantiate a new truffle contract from the artifact
-            Stack.contracts.OrderWholesaler = TruffleContract();
-            //connect provider to interact with contract
-            Stack.contracts.OrderWholesaler.setProvider(Stack.web3Provider);
+               console.log(lol.toNumber());
+                console.log(id);
+                console.log(medCount2);
+                $.ajaxSetup({ async: false });
+                $.getJSON("OrderWholesaler.json", function (i) {
+                    //Instantiate a new truffle contract from the artifact
+                    Stack.contracts.OrderWholesaler = TruffleContract(i);
+                    //connect provider to interact with contract
+                    Stack.contracts.OrderWholesaler.setProvider(Stack.web3Provider);
+                    Stack.contracts.OrderWholesaler.deployed().then(function (instance) {
+                        OrderWholesalerInstance = instance;
+                        console.log("hello");
+                        return OrderWholesalerInstance.addMedToOrder(id, medCount2, lol.toNumber());
+                    });
+                });
+            });
         });
+        
+        
 
-        Stack.contracts.OrderWholesaler.deployed().then(function (instance) {
-            OrderWholesalerInstance = instance;
-            return OrderWholesalerInstance.addMedToOrder(id,medCount2,lol.toNumber()-1).then(function (i) {
-                return i
-            })
-        })
+        
 
     }
 
